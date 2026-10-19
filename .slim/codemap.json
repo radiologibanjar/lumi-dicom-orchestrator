@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "last_run": "2026-10-19T04:42:41.059Z",
+    "root": "C:\\Users\\hntin\\Desktop\\lumi-dicom-orchestrator",
+    "include_patterns": [
+      "src/**/*.py",
+      "config/**/*",
+      "scripts/**/*.py",
+      "pyproject.toml",
+      "Dockerfile",
+      "docker-compose.yml"
+    ],
+    "exclude_patterns": [
+      ".venv/**",
+      "**/__pycache__/**",
+      "tests/**",
+      "docs/**",
+      ".pytest_cache/**",
+      ".github/**"
+    ],
+    "exceptions": []
+  },
+  "file_hashes": {
+    "Dockerfile": "0aee7bb546a4e9be6ff0284c8311efcd",
+    "config/codemap.md": "3e7f748a5791265b0ff38655ae6b018d",
+    "config/default.yaml": "1514c47516b24e181e6ca9075f3e84a7",
+    "config/medirad.env": "4327f2129d6316174ccb0faeb88fb0fc",
+    "docker-compose.yml": "f55a37f4783ff6e2e8c727ec3300e16f",
+    "pyproject.toml": "19f7822a8e483720e7edfbfc3f681ff9",
+    "scripts/generate_tls_cert.py": "964bd94fd12216d515935d4260124d6d",
+    "scripts/init_db.py": "41c5867f574e7e731b29a4c77db337d8",
+    "scripts/medirad_connector.py": "1e24f47621b6a199f33556f8d2655930",
+    "scripts/smoke_scu.py": "decacb674a32947ed7b23b9e9e70650b",
+    "src/lumi_dicom/__init__.py": "83465b975a23ce615a8c0484858ddf14",
+    "src/lumi_dicom/__main__.py": "f5a371ac41782d3e6b98337efbf12dfe",
+    "src/lumi_dicom/api/auth.py": "17fa81d88b66b796a9edc85848f528f7",
+    "src/lumi_dicom/api/inbound.py": "adb552f646951e4eb17a578bbf607a76",
+    "src/lumi_dicom/api/routes.py": "8927d180e0cb0d302dc27de00ac9780c",
+    "src/lumi_dicom/api/server.py": "f888b58a20edf61a7d13c08af04a3c16",
+    "src/lumi_dicom/config.py": "b82b02b73474a9267849cfc7bfe3942f",
+    "src/lumi_dicom/dashboard.py": "260478a96b9056b29818e72572991763",
+    "src/lumi_dicom/db/manager.py": "285586aea399b5e9bb2e699c268b1282",
+    "src/lumi_dicom/db/schema.py": "fb961db6a00684fd32c85260dbf00001",
+    "src/lumi_dicom/dicom/mpps.py": "3c1b9cd284106260d82710fa519f90ed",
+    "src/lumi_dicom/dicom/mwl_scp.py": "910bc648c19f76e8c2be28c256165da8",
+    "src/lumi_dicom/docs.py": "b9e72322ab15a1695c06674ccf4d26b6",
+    "src/lumi_dicom/inbound/__init__.py": "f9908d6e82b98395a332ca19b91800c4",
+    "src/lumi_dicom/inbound/fhir.py": "954a2c8d4785ff6e0fe2acc7546c2416",
+    "src/lumi_dicom/inbound/hl7.py": "8c1a0840ce470f34cf166eacebd74a8c",
+    "src/lumi_dicom/models/worklist.py": "f108a189fa130edf376f77773f70ba82",
+    "src/lumi_dicom/workers/__init__.py": "36ce02f805a5f86eed1d84348b9df328",
+    "src/lumi_dicom/workers/image_router.py": "8bdc50889d962d2bce28ad2ccedc14c7"
+  },
+  "folder_hashes": {
+    ".": "dcd163ef020cf1f18c9368f2b7ae3454",
+    "config": "07df6c2a3d4ef44e270629caa1f371a4",
+    "scripts": "e7d23ac063f6a04304297e7ec7f40f6c",
+    "src": "feebfa5755eb0db244c9a335813b623c",
+    "src/lumi_dicom": "feebfa5755eb0db244c9a335813b623c",
+    "src/lumi_dicom/api": "ac0187255ab7bce6a3a1307771fd340c",
+    "src/lumi_dicom/db": "64b1ebdb30e0869fca4cd5d5d55c7426",
+    "src/lumi_dicom/dicom": "1913932a04b7741f0c549e9dfd84d3b3",
+    "src/lumi_dicom/inbound": "10768646b991902704aa2a6e0a445351",
+    "src/lumi_dicom/models": "ea3db306a59f869657eb91ed3327bd52",
+    "src/lumi_dicom/workers": "e1ee57bcecd06340f097a0b09978215b"
+  }
+}

@@ -1,0 +1,41 @@
+# Lumi DICOM Orchestrator — Git Ignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Runtime data
+worklist.db
+*.db-journal
+*.db-wal
+*.db-shm
+logs/
+data/
+
+# Secrets — file env lokal & private key TLS
+config/*.env
+certs/*.pem
+certs/*.key
+*.key
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,89 @@
+# Lumi DICOM Orchestrator — Konfigurasi Default
+# Semua nilai bisa dioverride via environment variable LUMI_DICOM_<KEY>
+
+lumi_dicom:
+  name: "Lumi DICOM Orchestrator"
+  version: "0.1.0"
+  environment: development
+
+# ─── Database ───────────────────────────────────────────────────────────────
+database:
+  path: "worklist.db"
+  # WAL mode untuk concurrent read/write (SCP + API bersamaan)
+  wal_mode: true
+  # Auto-vacuum untuk mencegah db membengkak
+  auto_vacuum: true
+
+# ─── Inbound API (FastAPI) ─────────────────────────────────────────────────
+api:
+  host: "0.0.0.0"
+  port: 8765
+  # CORS origins yang boleh mengakses API
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://127.0.0.1:3000"
+  # API keys untuk autentikasi X-API-Key header
+  # Wajib diganti untuk production
+  api_keys:
+    - "lumi-dicom-dev-key"
+
+# ─── DICOM MWL SCP ─────────────────────────────────────────────────────────
+mwl_scp:
+  enabled: true
+  ae_title: "LUMI_DICOM"
+  host: "0.0.0.0"
+  port: 11112
+  # Bind address — "0.0.0.0" agar modalitas di network bisa connect
+  bind: "0.0.0.0"
+  # Allow-list AE Title modalitas yang boleh query (comma-separated)
+  # Kosong = terima semua asosiasi (hanya aman di loopback)
+  allowed_aetitles: []
+  # Batas asosiasi bersamaan
+  max_associations: 20
+  # Batas hasil C-FIND per query
+  max_results: 1024
+  # TLS — enkripsi DICOM communication
+  # Sertifikat self-signed cukup untuk development
+  # Untuk production, gunakan sertifikat dari CA yang dipercaya
+  tls:
+    enabled: false
+    # Path ke file sertifikat (PEM format)
+    # Contoh: "certs/lumi-dicom-cert.pem"
+    cert_file: ""
+    # Path ke file private key (PEM format)
+    # Contoh: "certs/lumi-dicom-key.pem"
+    key_file: ""
+
+# ─── MPPS (Opsional) ───────────────────────────────────────────────────────
+mpps:
+  enabled: false
+  ae_title: "LUMI_MPPS"
+  host: "0.0.0.0"
+  port: 11113
+  bind: "127.0.0.1"
+  max_associations: 10
+  # TLS — enkripsi DICOM communication (sama dengan MWL SCP)
+  tls:
+    enabled: false
+    cert_file: ""
+    key_file: ""
+
+# ─── Image Route (Opsional) ────────────────────────────────────────────────
+image_route:
+  enabled: false
+  # AE Title untuk menerima images dari modalitas
+  source_ae: "LUMI_ROUTE"
+  host: "0.0.0.0"
+  port: 11114
+  bind: "127.0.0.1"
+  # Daftar destination AE untuk routing
+  destinations: []
+  # - ae_title: "PACS01"
+  #   host: "192.168.1.10"
+  #   port: 11112
+
+# ─── Logging ───────────────────────────────────────────────────────────────
+logging:
+  level: "INFO"
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"

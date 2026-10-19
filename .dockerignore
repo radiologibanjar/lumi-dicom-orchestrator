@@ -1,0 +1,43 @@
+# Lumi DICOM — Docker Ignore
+# Copyright © 2026 Lumi DICOM. All rights reserved.
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Lumi DICOM runtime data
+worklist.db
+*.db-journal
+*.db-wal
+*.db-shm
+logs/
+data/
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Git
+.git/
+.gitignore

@@ -1,0 +1,31 @@
+# Lumi DICOM Orchestrator — Docker Compose
+# Copyright © 2026 Lumi DICOM. All rights reserved.
+
+services:
+  lumi-dicom:
+    build: .
+    container_name: lumi-dicom-orchestrator
+    restart: unless-stopped
+    ports:
+      - "8765:8765"     # Inbound API (HTTP)
+      - "11112:11112"   # DICOM MWL SCP
+    volumes:
+      - lumi-dicom-data:/data
+    environment:
+      LUMI_DICOM_DATABASE__PATH: "/data/worklist.db"
+      LUMI_DICOM_API__HOST: "0.0.0.0"
+      LUMI_DICOM_API__PORT: "8765"
+      LUMI_DICOM_MWL_SCP__ENABLED: "true"
+      LUMI_DICOM_MWL_SCP__AE_TITLE: "LUMI_DICOM"
+      LUMI_DICOM_MWL_SCP__BIND: "0.0.0.0"
+      LUMI_DICOM_MWL_SCP__PORT: "11112"
+      LUMI_DICOM_LOGGING__LEVEL: "INFO"
+    networks:
+      - lumi-dicom-net
+
+volumes:
+  lumi-dicom-data:
+
+networks:
+  lumi-dicom-net:
+    driver: bridge
