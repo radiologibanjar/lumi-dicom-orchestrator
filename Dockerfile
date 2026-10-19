@@ -1,7 +1,7 @@
 # Lumi DICOM Orchestrator — Dockerfile
 # Copyright © 2026 Lumi DICOM. All rights reserved.
 
-FROM python:3.12-slim
+FROM python:3.14-slim
 
 # Labels
 LABEL org.opencontainers.image.title="Lumi DICOM Orchestrator"
